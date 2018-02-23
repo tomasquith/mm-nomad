@@ -54,6 +54,9 @@ client {
 }
 '@ | Set-Content C:\ProgramData\nomad\conf\client.hcl
 
+Write-Host "nomad starts before docker and can't load the driver - delay nomad start"
+sc.exe config nomad start=delayed-auto
+
 cinst notepadplusplus -y
 
 Write-Host "Need to restart windows, then start docker, consul and nomad"
